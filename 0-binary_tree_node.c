@@ -22,6 +22,8 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 	if (parent == NULL)
 	{
 		ptr_binary_tree->n = value;
+		ptr_binary_tree->left = NULL;
+		ptr_binary_tree->right = NULL;
 	}
 	else
 	{
@@ -30,5 +32,4 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 	}
 
 	return (ptr_binary_tree);
-	free(ptr_binary_tree);
 }
