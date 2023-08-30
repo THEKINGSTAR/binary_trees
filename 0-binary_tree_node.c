@@ -21,7 +21,6 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 
 	if (parent == NULL)
 	{
-		ptr_binary_tree->parent =  ptr_binary_tree;
 		ptr_binary_tree->n = value;
 	}
 	else
