@@ -19,8 +19,17 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 	if (ptr_binary_tree == NULL)
 		return (NULL);
 
-	ptr_binary_tree->parent = parent;
-	 ptr_binary_tree->n = value;
+	if (parent == NULL)
+	{
+		ptr_binary_tree->parent =  ptr_binary_tree;
+		ptr_binary_tree->n = value;
+	}
+	else
+	{
+		ptr_binary_tree->parent = parent;
+		ptr_binary_tree->n = value;
+	}
 
 	return (ptr_binary_tree);
+	free(ptr_binary_tree);
 }
