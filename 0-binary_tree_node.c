@@ -14,11 +14,9 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
 	binary_tree_t *ptr_binary_tree;
 
-	ptr_binary_tree = malloc(sizeof(binary_tree_t));
-
 	if (ptr_binary_tree == NULL)
 		return (NULL);
-
+	ptr_binary_tree = malloc(sizeof(binary_tree_t));
 	ptr_binary_tree->left = NULL;
 	ptr_binary_tree->right = NULL;
 
