@@ -1,0 +1,58 @@
+#include "binary_trees.h"
+
+/**
+ * binary_tree_delete -  function that deletes an entire binary tree
+ * Where
+ * @tree: is a pointer to the root node of the tree to delete
+ * If tree is NULL, do nothing
+ * Return: NO RETURN VALUES
+ *
+ */
+void binary_tree_delete(binary_tree_t *tree)
+{
+	binary_tree_t *pptr, *prev;
+
+	if (tree == NULL)
+		return;
+	else
+	{
+		/*pptr = malloc(sizeof(binary_tree_t));*/
+		pptr = tree;
+		pptr->parent = tree->parent;
+		pptr->right = tree->right;
+		pptr->left = tree->left;
+		while(pptr != NULL)
+		{
+			if (pptr->right != NULL)
+			{
+				printf("PPTR->parent @ %d\n",pptr->parent->n);
+				pptr = pptr->right;
+				printf("PPTR @ %d\n",pptr->n);
+				prev = pptr->parent;
+				printf("PREV @ %d\n",pptr->n);
+				continue;
+			}
+			else if (pptr->left != NULL)
+			{
+				pptr = pptr->left;
+				printf("PPTL @ %d\n",pptr->n);
+				prev = pptr->parent;
+				printf("PERV @ %d\n",pptr->n);
+				continue;
+			}
+			if (pptr->left == NULL && pptr->right == NULL)
+			{
+				prev = pptr->parent;
+				printf("PREV @ %d\n",pptr->n);
+				printf("FREE PPTR @ %d\n",pptr->n);
+				free(pptr);
+				pptr = prev;
+				prev = pptr->parent;
+			}
+			if (pptr->parent == NULL)
+				pptr = NULL;
+		}
+		free(pptr);
+		free(tree);
+	}
+}
